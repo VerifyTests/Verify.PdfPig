@@ -23,13 +23,11 @@ Enable:
 public static class ModuleInitializer
 {
     [ModuleInitializer]
-    public static void Init()
-    {
+    public static void Init() =>
         VerifyImageMagick.Initialize();
-    }
 }
 ```
-<sup><a href='/src/Tests/ModuleInitializer.cs#L1-L8' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/ModuleInitializer.cs#L1-L6' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 `Initialize` registers the pdf to png converter and all comparers.
@@ -50,12 +48,10 @@ VerifyImageMagick.RegisterPdfToPngConverter();
 <a id='snippet-verifypdf'></a>
 ```cs
 [Test]
-public Task VerifyPdf()
-{
-    return VerifyFile("sample.pdf");
-}
+public Task VerifyPdf() =>
+    VerifyFile("sample.pdf");
 ```
-<sup><a href='/src/Tests/Samples.cs#L14-L22' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifypdf' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L12-L18' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifypdf' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -65,13 +61,11 @@ public Task VerifyPdf()
 <a id='snippet-verifypdfstream'></a>
 ```cs
 [Test]
-public Task VerifyPdfStream()
-{
-    return Verify(File.OpenRead("sample.pdf"))
+public Task VerifyPdfStream() =>
+    Verify(File.OpenRead("sample.pdf"))
         .UseExtension("pdf");
-}
 ```
-<sup><a href='/src/Tests/Samples.cs#L24-L33' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifypdfstream' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L20-L27' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifypdfstream' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
