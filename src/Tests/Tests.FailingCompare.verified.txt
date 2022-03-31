@@ -1,0 +1,22 @@
+﻿{
+  Type: VerifyException,
+  Message:
+Directory: {ProjectDirectory}
+NotEqual:
+  - Received: Tests.FailingCompareInner.received.jpg
+    Verified: Tests.FailingCompareInner.verified.jpg
+
+FileContent:
+
+NotEqual:
+
+Received: Tests.FailingCompareInner.received.jpg
+Verified: Tests.FailingCompareInner.verified.jpg
+Compare Result: diff(0.4140830166355099) < threshold(0.0001).
+If this difference is acceptable, use:
+
+ * Globally: VerifyImageMagick.RegisterComparers(0.42);
+ * For one test: Verifier.VerifyFile("file.jpg").RegisterComparers(0.42);
+
+
+}
