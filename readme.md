@@ -31,15 +31,6 @@ public static class ModuleInitializer
 <!-- endSnippet -->
 
 
-### PDF converter
-
-To register only the pdf to png converter:
-
-```
-VerifyImageMagick.RegisterPdfToPngConverter();
-```
-
-
 #### Verify a file
 
 <!-- snippet: VerifyPdf -->
@@ -69,6 +60,39 @@ public Task VerifyPdfStream() =>
 
 #### Result
 
-[Samples.VerifyPdf.00.verified.png](/src/Tests/Samples.VerifyPdf.00.verified.png):
-
-<img src="/src/Tests/Samples.VerifyPdf.00.verified.png" width="200px">
+<!-- snippet: Samples.VerifyPdf.verified.txt -->
+<a id='snippet-Samples.VerifyPdf.verified.txt'></a>
+```txt
+{
+  Information: {
+    DocumentInformationDictionary: {
+      Data: {
+        CreationDate: {
+          Data: D:20060301072826
+        },
+        Creator: {
+          Data: Rave (http://www.nevrona.com/rave)
+        },
+        Producer: {
+          Data: Nevrona Designs
+        }
+      }
+    },
+    Creator: Rave (http://www.nevrona.com/rave),
+    Producer: Nevrona Designs,
+    CreationDate: D:20060301072826
+  },
+  Pages: [
+    {
+      Size: Letter,
+      Text:  A Simple PDF File  This is a small demonstration .pdf file -  just for use in the Virtual Mechanics tutorials. More text. And more  text. And more text. And more text. And more text.  And more text. And more text. And more text. And more text. And more  text. And more text. Boring, zzzzz. And more text. And more text. And  more text. And more text. And more text. And more text. And more text.  And more text. And more text.  And more text. And more text. And more text. And more text. And more  text. And more text. And more text. Even more. Continued on page 2 ...
+    },
+    {
+      Size: Letter,
+      Text:  Simple PDF File 2  ...continued from page 1. Yet more text. And more text. And more text.  And more text. And more text. And more text. And more text. And more  text. Oh, how boring typing this stuff. But not as boring as watching  paint dry. And more text. And more text. And more text. And more text.  Boring.  More, a little more text. The end, and just as well. 
+    }
+  ]
+}
+```
+<sup><a href='/src/Tests/Samples.VerifyPdf.verified.txt#L1-L30' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPdf.verified.txt' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
