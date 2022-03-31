@@ -5,7 +5,7 @@
 
 Extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of documents via [PdfPig](https://github.com/UglyToad/PdfPig).
 
-Converts documents pdfs to png for verification.
+Converts documents pdfs to text for verification.
 
 
 ## NuGet package
@@ -24,13 +24,11 @@ public static class ModuleInitializer
 {
     [ModuleInitializer]
     public static void Init() =>
-        VerifyImageMagick.Initialize();
+        VerifyPdfPig.Initialize();
 }
 ```
 <sup><a href='/src/Tests/ModuleInitializer.cs#L1-L6' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
-
-`Initialize` registers the pdf to png converter and all comparers.
 
 
 ### PDF converter
@@ -51,7 +49,7 @@ VerifyImageMagick.RegisterPdfToPngConverter();
 public Task VerifyPdf() =>
     VerifyFile("sample.pdf");
 ```
-<sup><a href='/src/Tests/Samples.cs#L12-L18' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifypdf' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L4-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifypdf' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -65,7 +63,7 @@ public Task VerifyPdfStream() =>
     Verify(File.OpenRead("sample.pdf"))
         .UseExtension("pdf");
 ```
-<sup><a href='/src/Tests/Samples.cs#L20-L27' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifypdfstream' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L12-L19' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifypdfstream' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

@@ -2,5 +2,5 @@
 {
     [ModuleInitializer]
     public static void Init() =>
-        VerifyImageMagick.Initialize();
+        VerifyPdfPig.Initialize();
 }

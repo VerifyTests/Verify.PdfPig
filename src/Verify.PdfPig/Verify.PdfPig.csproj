@@ -4,9 +4,9 @@
     <RootNamespace>Verify.PdfPig</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="PdfPig" Version="0.1.5" />
+    <PackageReference Include="PdfPig" Version="0.1.6-alpha-20220315-9c83e" />
     <PackageReference Include="Nullable" Version="1.3.0" PrivateAssets="all" />
-    <PackageReference Include="Verify" Version="16.4.2" />
+    <PackageReference Include="Verify" Version="16.5.2" />
     <PackageReference Include="ProjectDefaults" Version="1.0.78" PrivateAssets="all" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" Condition="$(Configuration) == 'Release'" />
   </ItemGroup>
