@@ -5,7 +5,8 @@ public class Samples
 
     [Test]
     public Task VerifyPdf() =>
-        VerifyFile("sample.pdf");
+        VerifyFile("sample.pdf")
+            .PagesToInclude(2);
 
     #endregion
 
