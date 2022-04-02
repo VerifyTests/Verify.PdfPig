@@ -68,7 +68,7 @@ public Task VerifyPdfStream() =>
   Information: {
     Creator: Writer,
     Producer: LibreOffice 4.2,
-    CreationDate: D:20170816144413+02'00'
+    CreationDate: DateTimeOffset_1
   },
   Pages: [
     {
