@@ -1,5 +1,4 @@
 ﻿using UglyToad.PdfPig;
-using UglyToad.PdfPig.Content;
 using UglyToad.PdfPig.DocumentLayoutAnalysis.TextExtractor;
 
 namespace VerifyTests;
@@ -8,9 +7,9 @@ public static class VerifyPdfPig
 {
     public static void Initialize()
     {
-        VerifierSettings.ModifySerialization(_ =>
-            _.IgnoreMember<DocumentInformation>(_ =>
-                _.DocumentInformationDictionary));
+        VerifierSettings.ModifySerialization(
+            _ => _.AddExtraSettings(
+                _ => _.Converters.Add(new DocumentInformationConverter())));
         VerifierSettings.RegisterFileConverter(
             "pdf",
             (stream, context) => Convert(stream, context));
