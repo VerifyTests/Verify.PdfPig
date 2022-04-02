@@ -85,14 +85,35 @@ public Task VerifyPdfStream() =>
   Pages: [
     {
       Size: Letter,
-      Text:  A Simple PDF File  This is a small demonstration .pdf file -  just for use in the Virtual Mechanics tutorials. More text. And more  text. And more text. And more text. And more text.  And more text. And more text. And more text. And more text. And more  text. And more text. Boring, zzzzz. And more text. And more text. And  more text. And more text. And more text. And more text. And more text.  And more text. And more text.  And more text. And more text. And more text. And more text. And more  text. And more text. And more text. Even more. Continued on page 2 ...
+      Text:
+ A Simple PDF File 
+
+This is a small demonstration .pdf file - 
+
+just for use in the Virtual Mechanics tutorials. More text. And more 
+text. And more text. And more text. And more text. 
+
+And more text. And more text. And more text. And more text. And more 
+text. And more text. Boring, zzzzz. And more text. And more text. And 
+more text. And more text. And more text. And more text. And more text. 
+And more text. And more text. 
+
+And more text. And more text. And more text. And more text. And more 
+text. And more text. And more text. Even more. Continued on page 2 ...
     },
     {
       Size: Letter,
-      Text:  Simple PDF File 2  ...continued from page 1. Yet more text. And more text. And more text.  And more text. And more text. And more text. And more text. And more  text. Oh, how boring typing this stuff. But not as boring as watching  paint dry. And more text. And more text. And more text. And more text.  Boring.  More, a little more text. The end, and just as well. 
+      Text:
+ Simple PDF File 2 
+
+...continued from page 1. Yet more text. And more text. And more text. 
+And more text. And more text. And more text. And more text. And more 
+text. Oh, how boring typing this stuff. But not as boring as watching 
+paint dry. And more text. And more text. And more text. And more text. 
+Boring.  More, a little more text. The end, and just as well. 
     }
   ]
 }
 ```
-<sup><a href='/src/Tests/Samples.VerifyPdf.verified.txt#L1-L30' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPdf.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyPdf.verified.txt#L1-L51' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPdf.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
