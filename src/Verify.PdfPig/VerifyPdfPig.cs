@@ -1,4 +1,5 @@
 ﻿using UglyToad.PdfPig;
+using UglyToad.PdfPig.DocumentLayoutAnalysis.TextExtractor;
 
 namespace VerifyTests;
 
@@ -26,9 +27,9 @@ public static class VerifyPdfPig
             pageContents.Add(
                 new()
                 {
-                    Text=page.Text,
-                    Size=page.Size,
-                    Rotation=page.Rotation,
+                    Text = ContentOrderTextExtractor.GetText(page, true),
+                    Size = page.Size,
+                    Rotation = page.Rotation,
                 });
         }
 
