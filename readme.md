@@ -66,69 +66,6 @@ public Task VerifyPdfStream() =>
 ```txt
 {
   Information: {
-    DocumentInformationDictionary: {
-      Data: {
-        CreationDate: {
-          Data: D:20170816144413+02'00'
-        },
-        Creator: {
-          Data: Writer,
-          Bytes: [
-            254,
-            255,
-            0,
-            87,
-            0,
-            114,
-            0,
-            105,
-            0,
-            116,
-            0,
-            101,
-            0,
-            114
-          ]
-        },
-        Producer: {
-          Data: LibreOffice 4.2,
-          Bytes: [
-            254,
-            255,
-            0,
-            76,
-            0,
-            105,
-            0,
-            98,
-            0,
-            114,
-            0,
-            101,
-            0,
-            79,
-            0,
-            102,
-            0,
-            102,
-            0,
-            105,
-            0,
-            99,
-            0,
-            101,
-            0,
-            32,
-            0,
-            52,
-            0,
-            46,
-            0,
-            50
-          ]
-        }
-      }
-    },
     Creator: Writer,
     Producer: LibreOffice 4.2,
     CreationDate: D:20170816144413+02'00'
@@ -226,5 +163,5 @@ sed turpis imperdiet eleifend sit amet id sapien.
   ]
 }
 ```
-<sup><a href='/src/Tests/Samples.VerifyPdf.verified.txt#L1-L161' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPdf.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyPdf.verified.txt#L1-L98' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPdf.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
