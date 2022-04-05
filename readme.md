@@ -116,6 +116,7 @@ Row 1 Row 2 Row 3 Row 4
 Column 1
 Column 2
 Column 3
+
     },
     {
       Size: A4,
@@ -159,9 +160,10 @@ posuere laoreet. Suspendisse neque nisl, fringilla at iaculis scelerisque, ornar
 et pulvinar nunc. Pellentesque fringilla mollis efficitur. Nullam venenatis commodo
 imperdiet. Morbi velit neque, semper quis lorem quis, efficitur dignissim ipsum. Ut ac lorem
 sed turpis imperdiet eleifend sit amet id sapien.
+
     }
   ]
 }
 ```
-<sup><a href='/src/Tests/Samples.VerifyPdf.verified.txt#L1-L98' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPdf.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyPdf.verified.txt#L1-L100' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPdf.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
