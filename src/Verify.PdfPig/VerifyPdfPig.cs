@@ -32,7 +32,7 @@ public static class VerifyPdfPig
             pageContents.Add(
                 new()
                 {
-                    Text = ContentOrderTextExtractor.GetText(page, true),
+                    Text = TrimWhitespace(ContentOrderTextExtractor.GetText(page, true)),
                     Size = page.Size,
                     Rotation = page.Rotation,
                 });
@@ -45,5 +45,18 @@ public static class VerifyPdfPig
                 Pages = pageContents
             },
             Enumerable.Empty<Target>());
+    }
+
+    static string TrimWhitespace(string text)
+    {
+        var builder = new StringBuilder(text.Length);
+        using var reader = new StringReader(text);
+
+        while (reader.ReadLine() is { } line)
+        {
+            builder.AppendLine(line.Trim());
+        }
+
+        return builder.ToString();
     }
 }
