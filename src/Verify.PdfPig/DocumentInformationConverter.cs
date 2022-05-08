@@ -14,7 +14,6 @@ class DocumentInformationConverter :
         writer.WriteProperty(value, value.Subject, "Subject");
         writer.WriteProperty(value, value.GetCreatedDateTimeOffset(), "CreationDate");
         writer.WriteProperty(value, value.GetModifiedDateTimeOffset(), "ModifiedDate");
-        writer.WriteProperty(value, value.Author, "Author");
         writer.WriteEnd();
     }
 }
