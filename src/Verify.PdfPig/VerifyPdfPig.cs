@@ -7,12 +7,10 @@ public static class VerifyPdfPig
 {
     public static void Initialize()
     {
-        VerifierSettings.ModifySerialization(
-            _ => _.AddExtraSettings(
-                _ => _.Converters.Add(new DocumentInformationConverter())));
-        VerifierSettings.RegisterFileConverter(
-            "pdf",
-            (stream, context) => Convert(stream, context));
+        VerifierSettings
+            .AddExtraSettings(
+                _ => _.Converters.Add(new DocumentInformationConverter()));
+        VerifierSettings.RegisterFileConverter("pdf", Convert);
     }
 
     static ConversionResult Convert(Stream stream, IReadOnlyDictionary<string, object> context)
