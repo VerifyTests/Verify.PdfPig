@@ -48,10 +48,9 @@ public Task VerifyPdf() =>
 ```cs
 [Test]
 public Task VerifyPdfStream() =>
-    Verify(File.OpenRead("sample.pdf"))
-        .UseExtension("pdf");
+    Verify(File.OpenRead("sample.pdf"), "pdf");
 ```
-<sup><a href='/src/Tests/Samples.cs#L13-L20' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifypdfstream' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L13-L19' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifypdfstream' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

@@ -14,8 +14,7 @@ public class Samples
 
     [Test]
     public Task VerifyPdfStream() =>
-        Verify(File.OpenRead("sample.pdf"))
-            .UseExtension("pdf");
+        Verify(File.OpenRead("sample.pdf"), "pdf");
 
     #endregion
 }
