@@ -7,6 +7,7 @@ public static class VerifyPdfPig
 {
     public static void Initialize()
     {
+        InnerVerifier.ThrowIfVerifyHasBeenRun();
         VerifierSettings
             .AddExtraSettings(
                 _ => _.Converters.Add(new DocumentInformationConverter()));
