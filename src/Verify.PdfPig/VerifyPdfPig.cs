@@ -5,7 +5,7 @@ namespace VerifyTests;
 
 public static class VerifyPdfPig
 {
-    public static bool Initialized {get; private set; }
+    public static bool Initialized { get; private set; }
 
     public static void Initialize()
     {
