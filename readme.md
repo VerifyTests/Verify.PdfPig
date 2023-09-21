@@ -8,6 +8,8 @@ Extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of
 
 Converts documents pdfs to text for verification.
 
+**See [Milestones](../../milestones?state=closed) for release notes.**
+
 
 ## NuGet package
 
