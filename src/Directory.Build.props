@@ -8,5 +8,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <PackageTags>PdfPig, Verify</PackageTags>
     <Description>Extends Verify (https://github.com/VerifyTests/Verify) to allow verification via PdfPig.</Description>
+    <ResolveAssemblyReferencesSilent>true</ResolveAssemblyReferencesSilent>
   </PropertyGroup>
 </Project>
