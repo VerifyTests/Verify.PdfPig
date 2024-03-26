@@ -32,27 +32,27 @@ public static void Init() =>
 #### Verify a file
 
 <!-- snippet: VerifyPdf -->
-<a id='snippet-verifypdf'></a>
+<a id='snippet-VerifyPdf'></a>
 ```cs
 [Test]
 public Task VerifyPdf() =>
     VerifyFile("sample.pdf")
         .PagesToInclude(2);
 ```
-<sup><a href='/src/Tests/Samples.cs#L4-L11' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifypdf' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L4-L11' title='Snippet source file'>snippet source</a> | <a href='#snippet-VerifyPdf' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
 #### Verify a Stream
 
 <!-- snippet: VerifyPdfStream -->
-<a id='snippet-verifypdfstream'></a>
+<a id='snippet-VerifyPdfStream'></a>
 ```cs
 [Test]
 public Task VerifyPdfStream() =>
     Verify(File.OpenRead("sample.pdf"), "pdf");
 ```
-<sup><a href='/src/Tests/Samples.cs#L13-L19' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifypdfstream' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L13-L19' title='Snippet source file'>snippet source</a> | <a href='#snippet-VerifyPdfStream' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
