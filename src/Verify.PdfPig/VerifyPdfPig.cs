@@ -1,7 +1,4 @@
-﻿using UglyToad.PdfPig;
-using UglyToad.PdfPig.DocumentLayoutAnalysis.TextExtractor;
-
-namespace VerifyTests;
+﻿namespace VerifyTests;
 
 public static class VerifyPdfPig
 {
@@ -52,7 +49,7 @@ public static class VerifyPdfPig
                 Information = document.Information,
                 Pages = pageContents
             },
-            Enumerable.Empty<Target>());
+            []);
     }
 
     static string TrimWhitespace(string text)

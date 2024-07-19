@@ -1,5 +1,3 @@
-using UglyToad.PdfPig.Content;
-
 class DocumentInformationConverter :
     WriteOnlyJsonConverter<DocumentInformation>
 {

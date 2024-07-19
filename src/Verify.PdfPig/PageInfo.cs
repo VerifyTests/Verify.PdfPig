@@ -1,6 +1,4 @@
-﻿using UglyToad.PdfPig.Content;
-
-class PageInfo
+﻿class PageInfo
 {
     public PageSize Size;
     public PageRotationDegrees Rotation;

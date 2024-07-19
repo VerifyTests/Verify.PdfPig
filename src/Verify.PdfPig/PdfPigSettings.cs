@@ -1,7 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using UglyToad.PdfPig;
-
-namespace VerifyTests;
+﻿namespace VerifyTests;
 
 public static class PdfPigSettings
 {

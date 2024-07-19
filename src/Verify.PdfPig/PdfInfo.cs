@@ -1,6 +1,4 @@
-﻿using UglyToad.PdfPig.Content;
-
-namespace VerifyTests;
+﻿namespace VerifyTests;
 
 class PdfInfo
 {
