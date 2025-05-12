@@ -17,10 +17,10 @@ public static class VerifyPdfPig
         VerifierSettings
             .AddExtraSettings(
                 _ => _.Converters.Add(new DocumentInformationConverter()));
-        VerifierSettings.RegisterFileConverter("pdf", Convert);
+        VerifierSettings.RegisterStreamConverter("pdf", Convert);
     }
 
-    static ConversionResult Convert(Stream stream, IReadOnlyDictionary<string, object> context)
+    static ConversionResult Convert(string? name, Stream stream, IReadOnlyDictionary<string, object> context)
     {
         var pageContents = new List<PageInfo>();
         var parsingOptions = context.PdfPigParsingOptions();
