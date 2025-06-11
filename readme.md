@@ -11,9 +11,9 @@ Converts documents pdfs to text for verification.
 **See [Milestones](../../milestones?state=closed) for release notes.**
 
 
-## NuGet package
+## NuGet
 
-https://nuget.org/packages/Verify.PdfPig/
+ * https://nuget.org/packages/Verify.PdfPig
 
 
 ## Usage
