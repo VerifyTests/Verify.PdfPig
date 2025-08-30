@@ -1,8 +1,8 @@
-[Documentation](https://github.com/VerifyTests/Verify.PdfP)
+[Documentation](https://github.com/VerifyTests/Verify.PdfPig)
 
 Extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of documents via [PdfPig](https://github.com/UglyToad/PdfPig).<!-- singleLineInclude: intro. path: /docs/intro.include.md -->
 
-**See [Milestones](https://github.com/VerifyTests/Verify.PdfP/milestones?state=closed) for release notes.**
+**See [Milestones](https://github.com/VerifyTests/Verify.PdfPig/milestones?state=closed) for release notes.**
 
 
 ## Sponsors
