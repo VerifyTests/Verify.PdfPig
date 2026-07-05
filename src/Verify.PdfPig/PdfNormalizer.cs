@@ -6,8 +6,14 @@
 /// <remarks>
 /// All edits are performed directly on the bytes and are length-preserving: only the mutable
 /// characters inside each value are overwritten, so every cross-reference offset stays valid and
-/// the file never has to be re-serialized. Values that live inside a compressed object or metadata
-/// stream (<c>/ObjStm</c>, flate-compressed XMP) are not reachable by this plaintext scan.
+/// the file never has to be re-serialized. The scan is plaintext, so a value that has been
+/// compressed away (inside an <c>/ObjStm</c> object stream or a flate-compressed XMP packet) no
+/// longer appears literally and is therefore left as-is.
+/// <para>
+/// Targets unencrypted documents. Encrypted PDFs seed their encryption key from the trailer
+/// <c>/ID</c>; zeroing it would leave the document undecryptable, so encrypted input should not be
+/// passed here.
+/// </para>
 /// </remarks>
 static class PdfNormalizer
 {

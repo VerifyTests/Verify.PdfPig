@@ -81,6 +81,7 @@ public Task VerifyPdfStream() =>
     Producer: LibreOffice 4.2,
     CreationDate: DateTimeOffset_1
   },
+  PageCount: 4,
   Pages: [
     {
       Size: A4,
@@ -130,6 +131,7 @@ Column 3
 
     },
     {
+      Index: 1,
       Size: A4,
       Text:
 In non mauris justo. Duis vehicula mi vel mi pretium, a viverra erat efficitur. Cras aliquam
@@ -176,5 +178,5 @@ sed turpis imperdiet eleifend sit amet id sapien.
   ]
 }
 ```
-<sup><a href='/src/Tests/Samples.VerifyPdf.verified.txt#L1-L100' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPdf.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyPdf.verified.txt#L1-L102' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPdf.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->

@@ -58,6 +58,17 @@ public class PdfNormalizerTests
         Assert.That(document.NumberOfPages, Is.EqualTo(4));
     }
 
+    [Test]
+    public void IsIdempotent()
+    {
+        // A second pass has nothing left to change: normalizing already-normalized bytes is a no-op.
+        var once = File.ReadAllBytes("sample.pdf");
+        PdfNormalizer.Normalize(once);
+        var twice = (byte[])once.Clone();
+        PdfNormalizer.Normalize(twice);
+        Assert.That(twice, Is.EqualTo(once));
+    }
+
     static string Normalize(string value)
     {
         var bytes = Encoding.Latin1.GetBytes(value);

@@ -28,7 +28,8 @@ public static class VerifyPdfPig
         PdfInfo info;
         using (var document = PdfDocument.Open(bytes, parsingOptions))
         {
-            var count = document.NumberOfPages;
+            var numberOfPages = document.NumberOfPages;
+            var count = numberOfPages;
             if (context.GetPagesToInclude(out var pagesToInclude))
             {
                 count = Math.Min(count, (int) pagesToInclude);
@@ -40,6 +41,7 @@ public static class VerifyPdfPig
                 pageContents.Add(
                     new()
                     {
+                        Index = index,
                         Text = TrimWhitespace(ContentOrderTextExtractor.GetText(page, true)),
                         Size = page.Size,
                         Rotation = page.Rotation,
@@ -49,10 +51,15 @@ public static class VerifyPdfPig
             info = new()
             {
                 Information = document.Information,
+                PageCount = numberOfPages,
                 Pages = pageContents
             };
         }
 
+        // The pdf snapshot is always the full source document, regardless of PagesToInclude:
+        // PagesToInclude only trims the info/text pages, since PdfPig has no in-place page splitter
+        // and rebuilding a subset via the writer would re-serialize the whole file.
+        //
         // Neutralize the volatile fields for the pdf snapshot only once the document, which reads
         // lazily from the same buffer, has been released.
         PdfNormalizer.Normalize(bytes);

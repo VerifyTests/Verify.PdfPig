@@ -4,6 +4,7 @@
     Producer: LibreOffice 4.2,
     CreationDate: DateTimeOffset_1
   },
+  PageCount: 4,
   Pages: [
     {
       Size: A4,
@@ -53,6 +54,7 @@ Column 3
 
     },
     {
+      Index: 1,
       Size: A4,
       Text:
 In non mauris justo. Duis vehicula mi vel mi pretium, a viverra erat efficitur. Cras aliquam
