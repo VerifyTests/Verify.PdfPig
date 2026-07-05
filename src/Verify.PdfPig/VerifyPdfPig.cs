@@ -22,34 +22,67 @@ public static class VerifyPdfPig
 
     static ConversionResult Convert(string? name, Stream stream, IReadOnlyDictionary<string, object> context)
     {
-        var pageContents = new List<PageInfo>();
+        var bytes = ToBytes(stream);
         var parsingOptions = context.PdfPigParsingOptions();
-        using var document = PdfDocument.Open(stream, parsingOptions);
-        var count = document.NumberOfPages;
-        if (context.GetPagesToInclude(out var pagesToInclude))
+        var pageContents = new List<PageInfo>();
+        PdfInfo info;
+        using (var document = PdfDocument.Open(bytes, parsingOptions))
         {
-            count = Math.Min(count, (int) pagesToInclude);
-        }
+            var numberOfPages = document.NumberOfPages;
+            var count = numberOfPages;
+            if (context.GetPagesToInclude(out var pagesToInclude))
+            {
+                count = Math.Min(count, (int) pagesToInclude);
+            }
 
-        for (var index = 0; index < count; index++)
-        {
-            var page = document.GetPage(index + 1);
-            pageContents.Add(
-                new()
-                {
-                    Text = TrimWhitespace(ContentOrderTextExtractor.GetText(page, true)),
-                    Size = page.Size,
-                    Rotation = page.Rotation,
-                });
-        }
+            for (var index = 0; index < count; index++)
+            {
+                var page = document.GetPage(index + 1);
+                pageContents.Add(
+                    new()
+                    {
+                        Index = index,
+                        Text = TrimWhitespace(ContentOrderTextExtractor.GetText(page, true)),
+                        Size = page.Size,
+                        Rotation = page.Rotation,
+                    });
+            }
 
-        return new(
-            new PdfInfo
+            info = new()
             {
                 Information = document.Information,
+                PageCount = numberOfPages,
                 Pages = pageContents
-            },
-            []);
+            };
+        }
+
+        // The pdf snapshot is always the full source document, regardless of PagesToInclude:
+        // PagesToInclude only trims the info/text pages, since PdfPig has no in-place page splitter
+        // and rebuilding a subset via the writer would re-serialize the whole file.
+        //
+        // Neutralize the volatile fields for the pdf snapshot only once the document, which reads
+        // lazily from the same buffer, has been released.
+        PdfNormalizer.Normalize(bytes);
+        return new(
+            info,
+            [
+                new("pdf", new MemoryStream(bytes))
+                {
+                    BypassComparersForSubsequentOnDifference = true
+                }
+            ]);
+    }
+
+    static byte[] ToBytes(Stream stream)
+    {
+        if (stream is MemoryStream memoryStream)
+        {
+            return memoryStream.ToArray();
+        }
+
+        using var buffer = new MemoryStream();
+        stream.CopyTo(buffer);
+        return buffer.ToArray();
     }
 
     static string TrimWhitespace(string text)
