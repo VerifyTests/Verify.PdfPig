@@ -180,3 +180,21 @@ sed turpis imperdiet eleifend sit amet id sapien.
 ```
 <sup><a href='/src/Tests/Samples.VerifyPdf.verified.txt#L1-L102' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPdf.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
+
+
+## Exclude the pdf
+
+The source pdf is included in the snapshot as a `.verified.pdf`. Where committing it is not wanted, [`ExcludeTargets`](https://github.com/VerifyTests/Verify/blob/main/docs/converter.md#excluding-targets) drops it from a verification and skips normalizing it, while the info and text still verify:
+
+<!-- snippet: ExcludePdf -->
+<a id='snippet-ExcludePdf'></a>
+```cs
+[Test]
+public Task ExcludePdf() =>
+    VerifyFile("sample.pdf")
+        .ExcludeTargets("pdf");
+```
+<sup><a href='/src/Tests/Samples.cs#L21-L28' title='Snippet source file'>snippet source</a> | <a href='#snippet-ExcludePdf' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+To exclude the pdf for every test, call `VerifierSettings.ExcludeTargets("pdf")` at initialization.

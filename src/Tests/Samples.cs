@@ -17,4 +17,13 @@ public class Samples
         Verify(File.OpenRead("sample.pdf"), "pdf");
 
     #endregion
+
+    #region ExcludePdf
+
+    [Test]
+    public Task ExcludePdf() =>
+        VerifyFile("sample.pdf")
+            .ExcludeTargets("pdf");
+
+    #endregion
 }

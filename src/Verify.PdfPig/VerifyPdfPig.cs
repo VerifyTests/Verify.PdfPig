@@ -59,18 +59,21 @@ public static class VerifyPdfPig
         // The pdf snapshot is always the full source document, regardless of PagesToInclude:
         // PagesToInclude only trims the info/text pages, since PdfPig has no in-place page splitter
         // and rebuilding a subset via the writer would re-serialize the whole file.
-        //
-        // Neutralize the volatile fields for the pdf snapshot only once the document, which reads
-        // lazily from the same buffer, has been released.
-        PdfNormalizer.Normalize(bytes);
-        return new(
-            info,
-            [
+        List<Target> targets = [];
+        // Generating the pdf is expensive, so skip it entirely when the pdf target is excluded.
+        if (!context.IsTargetExcluded("pdf"))
+        {
+            // Neutralize the volatile fields for the pdf snapshot only once the document, which reads
+            // lazily from the same buffer, has been released.
+            PdfNormalizer.Normalize(bytes);
+            targets.Add(
                 new("pdf", new MemoryStream(bytes))
                 {
                     BypassComparersForSubsequentOnDifference = true
-                }
-            ]);
+                });
+        }
+
+        return new(info, targets);
     }
 
     static byte[] ToBytes(Stream stream)
