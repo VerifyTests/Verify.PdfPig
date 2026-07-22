@@ -3,6 +3,7 @@
     <TargetFrameworks>net48;net6.0;net7.0;net8.0;net8.0;net10.0</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="DeterministicPdf" />
     <PackageReference Include="PdfPig" />
     <PackageReference Include="Polyfill" PrivateAssets="all" />
     <PackageReference Include="Verify" />

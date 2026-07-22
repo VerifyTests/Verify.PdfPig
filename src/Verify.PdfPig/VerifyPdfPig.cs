@@ -65,7 +65,7 @@ public static class VerifyPdfPig
         {
             // Neutralize the volatile fields for the pdf snapshot only once the document, which reads
             // lazily from the same buffer, has been released.
-            PdfNormalizer.Normalize(bytes);
+            bytes = PdfNormalizer.Normalize(bytes);
             targets.Add(
                 new("pdf", new MemoryStream(bytes))
                 {
