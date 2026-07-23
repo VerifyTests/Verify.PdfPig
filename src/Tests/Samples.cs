@@ -1,4 +1,4 @@
-﻿[TestFixture]
+[TestFixture]
 public class Samples
 {
     #region VerifyPdf
@@ -15,6 +15,15 @@ public class Samples
     [Test]
     public Task VerifyPdfStream() =>
         Verify(File.OpenRead("sample.pdf"), "pdf");
+
+    #endregion
+
+    #region SkipPdfNormalization
+
+    [Test]
+    public Task SkipPdfNormalization() =>
+        VerifyFile("sample.pdf")
+            .SkipPdfNormalization();
 
     #endregion
 
