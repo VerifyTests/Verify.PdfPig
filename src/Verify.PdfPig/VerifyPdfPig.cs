@@ -63,9 +63,13 @@ public static class VerifyPdfPig
         // Generating the pdf is expensive, so skip it entirely when the pdf target is excluded.
         if (!context.IsTargetExcluded("pdf"))
         {
-            // Neutralize the volatile fields for the pdf snapshot only once the document, which reads
-            // lazily from the same buffer, has been released.
-            bytes = PdfNormalizer.Normalize(bytes);
+            if (context.Normalize())
+            {
+                // Neutralize the volatile fields for the pdf snapshot only once the document, which
+                // reads lazily from the same buffer, has been released.
+                bytes = PdfNormalizer.Normalize(bytes);
+            }
+
             targets.Add(
                 new("pdf", new MemoryStream(bytes))
                 {
