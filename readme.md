@@ -194,7 +194,7 @@ public Task ExcludePdf() =>
     VerifyFile("sample.pdf")
         .ExcludeTargets("pdf");
 ```
-<sup><a href='/src/Tests/Samples.cs#L21-L28' title='Snippet source file'>snippet source</a> | <a href='#snippet-ExcludePdf' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L30-L37' title='Snippet source file'>snippet source</a> | <a href='#snippet-ExcludePdf' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 To exclude the pdf for every test, call `VerifierSettings.ExcludeTargets("pdf")` at initialization.
