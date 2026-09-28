@@ -53,7 +53,7 @@ public Task VerifyPdf() =>
     VerifyFile("sample.pdf")
         .PagesToInclude(2);
 ```
-<sup><a href='/src/Tests/Samples.cs#L4-L11' title='Snippet source file'>snippet source</a> | <a href='#snippet-VerifyPdf' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L3-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-VerifyPdf' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -66,7 +66,7 @@ public Task VerifyPdf() =>
 public Task VerifyPdfStream() =>
     Verify(File.OpenRead("sample.pdf"), "pdf");
 ```
-<sup><a href='/src/Tests/Samples.cs#L13-L19' title='Snippet source file'>snippet source</a> | <a href='#snippet-VerifyPdfStream' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L12-L18' title='Snippet source file'>snippet source</a> | <a href='#snippet-VerifyPdfStream' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -194,7 +194,7 @@ public Task ExcludePdf() =>
     VerifyFile("sample.pdf")
         .ExcludeTargets("pdf");
 ```
-<sup><a href='/src/Tests/Samples.cs#L30-L37' title='Snippet source file'>snippet source</a> | <a href='#snippet-ExcludePdf' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L29-L36' title='Snippet source file'>snippet source</a> | <a href='#snippet-ExcludePdf' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 To exclude the pdf for every test, call `VerifierSettings.ExcludeTargets("pdf")` at initialization.
