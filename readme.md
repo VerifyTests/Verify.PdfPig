@@ -43,6 +43,26 @@ public static void Init() =>
 <!-- endSnippet -->
 
 
+### Outputs
+
+`Initialize` accepts an optional `PdfPigOutputs` flags enum that controls, globally, which outputs a pdf is split into:
+
+ * `Text`: extract the text of each page into the `Text` property of each page in the info. When omitted, text extraction is skipped.
+ * `All`: all of the above. This is the default.
+
+The source pdf is not controlled by this setting. To exclude it use `ExcludeTargets("pdf")`.
+
+<!-- snippet: InitializeOutputs -->
+<a id='snippet-InitializeOutputs'></a>
+```cs
+[ModuleInitializer]
+public static void Init() =>
+    VerifyPdfPig.Initialize(PdfPigOutputs.All & ~PdfPigOutputs.Text);
+```
+<sup><a href='/src/StaticSettingsTests/ModuleInitializer.cs#L3-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-InitializeOutputs' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
 #### Verify a file
 
 <!-- snippet: VerifyPdf -->
