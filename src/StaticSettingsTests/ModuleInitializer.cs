@@ -4,7 +4,7 @@ public static class ModuleInitializer
 
     [ModuleInitializer]
     public static void Init() =>
-        VerifyPdfPig.Initialize(PdfPigOutputs.All & ~PdfPigOutputs.Text);
+        VerifyPdfPig.Initialize(PdfPigOutputs.None);
 
     #endregion
 }

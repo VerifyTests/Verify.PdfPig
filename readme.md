@@ -57,7 +57,7 @@ The source pdf is not controlled by this setting. To exclude it use `ExcludeTarg
 ```cs
 [ModuleInitializer]
 public static void Init() =>
-    VerifyPdfPig.Initialize(PdfPigOutputs.All & ~PdfPigOutputs.Text);
+    VerifyPdfPig.Initialize(PdfPigOutputs.None);
 ```
 <sup><a href='/src/StaticSettingsTests/ModuleInitializer.cs#L3-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-InitializeOutputs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
