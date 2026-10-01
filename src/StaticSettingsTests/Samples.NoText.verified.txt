@@ -1,0 +1,25 @@
+﻿{
+  Information: {
+    Creator: Writer,
+    Producer: LibreOffice 4.2,
+    CreationDate: DateTimeOffset_1
+  },
+  PageCount: 4,
+  Pages: [
+    {
+      Size: A4
+    },
+    {
+      Index: 1,
+      Size: A4
+    },
+    {
+      Index: 2,
+      Size: A4
+    },
+    {
+      Index: 3,
+      Size: A4
+    }
+  ]
+}

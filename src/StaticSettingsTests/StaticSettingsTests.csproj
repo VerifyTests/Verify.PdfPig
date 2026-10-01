@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Verify.TUnit" />
+    <PackageReference Include="TUnit" />
+    <PackageReference Include="Argon" />
+    <PackageReference Include="DiffEngine" />
+    <PackageReference Include="EmptyFiles" />
+    <PackageReference Include="SimpleInfoName" />
+    <PackageReference Include="Verify" />
+    <ProjectReference Include="..\Verify.PdfPig\Verify.PdfPig.csproj" />
+    <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
+
+    <None Include="..\Tests\sample.pdf" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

@@ -4,7 +4,10 @@ public static class VerifyPdfPig
 {
     public static bool Initialized { get; private set; }
 
-    public static void Initialize()
+    static PdfPigOutputs outputs = PdfPigOutputs.All;
+
+    /// <param name="outputs">Which outputs a pdf is split into. Defaults to <see cref="PdfPigOutputs.All"/>.</param>
+    public static void Initialize(PdfPigOutputs outputs = PdfPigOutputs.All)
     {
         if (Initialized)
         {
@@ -12,6 +15,7 @@ public static class VerifyPdfPig
         }
 
         Initialized = true;
+        VerifyPdfPig.outputs = outputs;
 
         InnerVerifier.ThrowIfVerifyHasBeenRun();
         VerifierSettings
@@ -35,6 +39,7 @@ public static class VerifyPdfPig
                 count = Math.Min(count, (int) pagesToInclude);
             }
 
+            var includeText = outputs.HasFlag(PdfPigOutputs.Text);
             for (var index = 0; index < count; index++)
             {
                 var page = document.GetPage(index + 1);
@@ -42,7 +47,7 @@ public static class VerifyPdfPig
                     new()
                     {
                         Index = index,
-                        Text = TrimWhitespace(ContentOrderTextExtractor.GetText(page, true)),
+                        Text = includeText ? TrimWhitespace(ContentOrderTextExtractor.GetText(page, true)) : null,
                         Size = page.Size,
                         Rotation = page.Rotation,
                     });
