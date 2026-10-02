@@ -48,6 +48,7 @@ public static void Init() =>
 `Initialize` accepts an optional `PdfPigOutputs` flags enum that controls, globally, which outputs a pdf is split into:
 
  * `Text`: extract the text of each page into the `Text` property of each page in the info. When omitted, text extraction is skipped.
+ * `None`: none of the above. Only the info and the source document are emitted.
  * `All`: all of the above. This is the default.
 
 The source pdf is not controlled by this setting. To exclude it use `ExcludeTargets("pdf")`.
