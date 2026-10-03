@@ -11,17 +11,17 @@ public class SkipPdfNormalizationTests
     {
         // The premise the two tests below rest on. If sample.pdf were already byte-identical to its
         // normalized form they would both pass while asserting nothing.
-        var raw = File.ReadAllBytes("sample.pdf");
+        var raw = File.ReadAllBytes(ProjectFiles.sample_pdf);
 
         await Assert.That(PdfNormalizer.Normalize(raw).SequenceEqual(raw)).IsFalse();
     }
 
     [Test]
     public Task SkippedSnapshotHoldsTheProducerBytes() =>
-        Verify(new MemoryStream(File.ReadAllBytes("sample.pdf")), "pdf")
+        Verify(new MemoryStream(File.ReadAllBytes(ProjectFiles.sample_pdf)), "pdf")
             .SkipPdfNormalization();
 
     [Test]
     public Task NormalizedSnapshotHoldsTheNeutralizedBytes() =>
-        Verify(new MemoryStream(File.ReadAllBytes("sample.pdf")), "pdf");
+        Verify(new MemoryStream(File.ReadAllBytes(ProjectFiles.sample_pdf)), "pdf");
 }

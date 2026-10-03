@@ -13,6 +13,7 @@
     <PackageReference Include="Verify" />
     <ProjectReference Include="..\Verify.PdfPig\Verify.PdfPig.csproj" />
     <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
+    <PackageReference Include="ProjectFiles" PrivateAssets="all" />
 
     <None Include="..\Tests\sample.pdf" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>

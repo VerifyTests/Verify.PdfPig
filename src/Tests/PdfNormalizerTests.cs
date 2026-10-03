@@ -11,7 +11,7 @@ public class PdfNormalizerTests
     [Test]
     public async Task NormalizedDocumentStillLoads()
     {
-        var data = PdfNormalizer.Normalize(File.ReadAllBytes("sample.pdf"));
+        var data = PdfNormalizer.Normalize(File.ReadAllBytes(ProjectFiles.sample_pdf));
 
         using var document = PdfDocument.Open(data);
         await Assert.That(document.NumberOfPages).IsEqualTo(4);
@@ -20,7 +20,7 @@ public class PdfNormalizerTests
     [Test]
     public async Task NeutralizesVolatileValues()
     {
-        var data = PdfNormalizer.Normalize(File.ReadAllBytes("sample.pdf"));
+        var data = PdfNormalizer.Normalize(File.ReadAllBytes(ProjectFiles.sample_pdf));
 
         var text = Encoding.Latin1.GetString(data);
         using (Assert.Multiple())
@@ -34,7 +34,7 @@ public class PdfNormalizerTests
     public async Task IsIdempotent()
     {
         // A second pass has nothing left to change: normalizing already-normalized bytes is a no-op.
-        var once = PdfNormalizer.Normalize(File.ReadAllBytes("sample.pdf"));
+        var once = PdfNormalizer.Normalize(File.ReadAllBytes(ProjectFiles.sample_pdf));
         var twice = PdfNormalizer.Normalize(once);
 
         await Assert.That(twice.SequenceEqual(once)).IsTrue();
