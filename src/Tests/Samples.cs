@@ -34,4 +34,22 @@ public class Samples
             .ExcludeTargets("pdf");
 
     #endregion
+
+    #region PageTextPerPage
+
+    [Test]
+    public Task PageTextPerPage() =>
+        VerifyFile("sample.pdf")
+            .PageText(PageTextPlacement.PerPage);
+
+    #endregion
+
+    // PagesToInclude limits the text files as it does the text in the info file: there is one for
+    // the page that is asked for and none for the others, and it keeps the number of its page.
+    [Test]
+    public Task PageTextPerPageOfIncludedPages() =>
+        VerifyFile("sample.pdf")
+            .PageText(PageTextPlacement.PerPage)
+            .PagesToInclude(_ => _ == 2)
+            .ExcludeTargets("pdf");
 }

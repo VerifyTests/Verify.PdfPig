@@ -4,10 +4,7 @@ public static class VerifyPdfPig
 {
     public static bool Initialized { get; private set; }
 
-    static PdfPigOutputs outputs = PdfPigOutputs.All;
-
-    /// <param name="outputs">Which outputs a pdf is split into. Defaults to <see cref="PdfPigOutputs.All"/>.</param>
-    public static void Initialize(PdfPigOutputs outputs = PdfPigOutputs.All)
+    public static void Initialize()
     {
         if (Initialized)
         {
@@ -15,7 +12,6 @@ public static class VerifyPdfPig
         }
 
         Initialized = true;
-        VerifyPdfPig.outputs = outputs;
 
         InnerVerifier.ThrowIfVerifyHasBeenRun();
         VerifierSettings
@@ -28,43 +24,28 @@ public static class VerifyPdfPig
     {
         var bytes = ToBytes(stream);
         var parsingOptions = context.PdfPigParsingOptions();
-        var pageContents = new List<PageInfo>();
-        PdfInfo info;
+
+        // Places the text of each page, and says which pages the verification wants and whether it
+        // wants their text, so text that is not wanted is not extracted.
+        var conversion = new PagedConversion(context);
+        var includeText = conversion.IncludeText;
         using (var document = PdfDocument.Open(bytes, parsingOptions))
         {
-            var numberOfPages = document.NumberOfPages;
-            var count = numberOfPages;
-            if (context.GetPagesToInclude(out var pagesToInclude))
+            conversion.Info = document.Information;
+            foreach (var number in conversion.Pages(document.NumberOfPages))
             {
-                count = Math.Min(count, (int) pagesToInclude);
-            }
+                var page = document.GetPage(number);
 
-            var includeText = outputs.HasFlag(PdfPigOutputs.Text);
-            for (var index = 0; index < count; index++)
-            {
-                var page = document.GetPage(index + 1);
-                pageContents.Add(
-                    new()
-                    {
-                        Index = index,
-                        Text = includeText ? TrimWhitespace(ContentOrderTextExtractor.GetText(page, true)) : null,
-                        Size = page.Size,
-                        Rotation = page.Rotation,
-                    });
-            }
+                string? text = null;
+                if (includeText)
+                {
+                    text = ReadText(page);
+                }
 
-            info = new()
-            {
-                Information = document.Information,
-                PageCount = numberOfPages,
-                Pages = pageContents
-            };
+                conversion.AddPage(number, text: text, info: ReadInfo(page));
+            }
         }
 
-        // The pdf snapshot is always the full source document, regardless of PagesToInclude:
-        // PagesToInclude only trims the info/text pages, since PdfPig has no in-place page splitter
-        // and rebuilding a subset via the writer would re-serialize the whole file.
-        List<Target> targets = [];
         // Generating the pdf is expensive, so skip it entirely when the pdf target is excluded.
         if (!context.IsTargetExcluded("pdf"))
         {
@@ -75,14 +56,10 @@ public static class VerifyPdfPig
                 bytes = PdfNormalizer.Normalize(bytes);
             }
 
-            targets.Add(
-                new("pdf", new MemoryStream(bytes))
-                {
-                    BypassComparersForSubsequentOnDifference = true
-                });
+            conversion.Source(new("pdf", new MemoryStream(bytes)));
         }
 
-        return new(info, targets);
+        return conversion.Build();
     }
 
     static byte[] ToBytes(Stream stream)
@@ -95,6 +72,36 @@ public static class VerifyPdfPig
         using var buffer = new MemoryStream();
         stream.CopyTo(buffer);
         return buffer.ToArray();
+    }
+
+    // Null for a page there is nothing to say of: a size that is not a named one, and no rotation.
+    // Both are then defaults, which the info leaves out, and the page would have an empty Info.
+    static PageInfo? ReadInfo(Page page)
+    {
+        if (page.Size == PageSize.Custom &&
+            page.Rotation.Value == 0)
+        {
+            return null;
+        }
+
+        return new()
+        {
+            Size = page.Size,
+            Rotation = page.Rotation
+        };
+    }
+
+    // Null for a page with no text, so that nothing is verified for it. An empty text would be an
+    // empty Text in the info, or under PageTextPlacement.PerPage a file with nothing in it.
+    static string? ReadText(Page page)
+    {
+        var text = TrimWhitespace(ContentOrderTextExtractor.GetText(page, true));
+        if (text.Length == 0)
+        {
+            return null;
+        }
+
+        return text;
     }
 
     static string TrimWhitespace(string text)

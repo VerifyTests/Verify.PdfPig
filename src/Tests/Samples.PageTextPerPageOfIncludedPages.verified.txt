@@ -7,25 +7,7 @@
   PageCount: 4,
   Pages: [
     {
-      Number: 1,
-      Info: {
-        Size: A4
-      }
-    },
-    {
       Number: 2,
-      Info: {
-        Size: A4
-      }
-    },
-    {
-      Number: 3,
-      Info: {
-        Size: A4
-      }
-    },
-    {
-      Number: 4,
       Info: {
         Size: A4
       }

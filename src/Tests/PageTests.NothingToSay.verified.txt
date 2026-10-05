@@ -1,0 +1,20 @@
+﻿{
+  Document: {
+    Producer: PdfPig
+  },
+  PageCount: 3,
+  Pages: [
+    {
+      Number: 1,
+      Text:
+A size that is not a named one
+
+    },
+    {
+      Number: 2,
+      Info: {
+        Size: A5
+      }
+    }
+  ]
+}
