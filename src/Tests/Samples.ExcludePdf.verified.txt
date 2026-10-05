@@ -1,5 +1,5 @@
 ﻿{
-  Information: {
+  Document: {
     Creator: Writer,
     Producer: LibreOffice 4.2,
     CreationDate: DateTimeOffset_1
@@ -7,7 +7,10 @@
   PageCount: 4,
   Pages: [
     {
-      Size: A4,
+      Number: 1,
+      Info: {
+        Size: A4
+      },
       Text:
 Lorem ipsum
 
@@ -54,8 +57,10 @@ Column 3
 
     },
     {
-      Index: 1,
-      Size: A4,
+      Number: 2,
+      Info: {
+        Size: A4
+      },
       Text:
 In non mauris justo. Duis vehicula mi vel mi pretium, a viverra erat efficitur. Cras aliquam
 est ac eros varius, id iaculis dui auctor. Duis pretium neque ligula, et pulvinar mi placerat
@@ -99,8 +104,10 @@ sed turpis imperdiet eleifend sit amet id sapien.
 
     },
     {
-      Index: 2,
-      Size: A4,
+      Number: 3,
+      Info: {
+        Size: A4
+      },
       Text:
 Lorem ipsum dolor sit amet, consectetur adipiscing
 elit.
@@ -150,9 +157,10 @@ sed turpis imperdiet eleifend sit amet id sapien.
 
     },
     {
-      Index: 3,
-      Size: A4,
-      Text: 
+      Number: 4,
+      Info: {
+        Size: A4
+      }
     }
   ]
 }

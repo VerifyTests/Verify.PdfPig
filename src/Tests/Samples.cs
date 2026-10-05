@@ -34,4 +34,13 @@ public class Samples
             .ExcludeTargets("pdf");
 
     #endregion
+
+    #region PageTextPerPage
+
+    [Test]
+    public Task PageTextPerPage() =>
+        VerifyFile("sample.pdf")
+            .PageText(PageTextPlacement.PerPage);
+
+    #endregion
 }
