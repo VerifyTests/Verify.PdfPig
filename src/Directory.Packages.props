@@ -4,7 +4,7 @@
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="MarkdownSnippets.MsBuild" Version="28.5.0" />
+    <PackageVersion Include="MarkdownSnippets.MsBuild" Version="28.5.1" />
     <PackageVersion Include="DeterministicPdf" Version="2.2.0" />
     <PackageVersion Include="TUnit" Version="1.75.0" />
     <PackageVersion Include="PdfPig" Version="0.1.16" />
