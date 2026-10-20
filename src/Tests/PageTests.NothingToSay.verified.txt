@@ -1,7 +1,5 @@
 ﻿{
-  Document: {
-    Producer: PdfPig
-  },
+  Document: {},
   PageCount: 3,
   Pages: [
     {
