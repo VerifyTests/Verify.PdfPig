@@ -122,7 +122,6 @@ public Task VerifyPdfStream() =>
 {
   Document: {
     Creator: Writer,
-    Producer: LibreOffice 4.2,
     CreationDate: DateTimeOffset_1
   },
   PageCount: 4,
@@ -227,7 +226,7 @@ sed turpis imperdiet eleifend sit amet id sapien.
   ]
 }
 ```
-<sup><a href='/src/Tests/Samples.VerifyPdf.verified.txt#L1-L107' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPdf.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyPdf.verified.txt#L1-L106' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPdf.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 The `Size` of a page is the name PdfPig has for it: `A4`, `Letter`. A page of any other size has no `Size`, and no `Info` at all unless it is rotated.
