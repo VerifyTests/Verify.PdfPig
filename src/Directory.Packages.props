@@ -6,7 +6,7 @@
   <ItemGroup>
     <PackageVersion Include="MarkdownSnippets.MsBuild" Version="28.5.1" />
     <PackageVersion Include="DeterministicPdf" Version="2.3.0" />
-    <PackageVersion Include="TUnit" Version="1.76.28" />
+    <PackageVersion Include="TUnit" Version="1.76.45" />
     <PackageVersion Include="PdfPig" Version="0.1.16" />
     <PackageVersion Include="Polyfill" Version="11.4.5" />
     <PackageVersion Include="ProjectDefaults" Version="1.0.184" />
